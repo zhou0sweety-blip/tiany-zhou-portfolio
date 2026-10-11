@@ -1,31 +1,40 @@
 # 推送指南 · tiany-zhou-portfolio
 
 > 目标仓库：<https://github.com/zhou0sweety-blip/tiany-zhou-portfolio>
-> 本地状态：`main` 分支 6 个提交 / 325 个受控文件 / 173MB，远程 `origin` 已配置完毕。
+> 状态：**已完成推送** —— 本机网络无法走 git 的 HTTPS 通道，最终改用 REST API 直推（见 01），保留 11 个提交历史。
 
 ---
 
-## 00 · 当前阻塞原因（实测结论）
+## 00 · 本机网络实测结论
 
 | 通道 | 结果 |
 | --- | --- |
 | `github.com:443`（git HTTPS，走系统/沙盒代理） | ❌ `CONNECT tunnel failed, response 502` |
-| `github.com:443`（直连，禁用代理） | ❌ `Failed to connect to github.com:443`（本机网络无路由） |
-| `ssh.github.com:443`（SSH over HTTPS 端口） | ✅ **可连通**（仅缺密钥，返回 `Permission denied (publickey)`） |
-| `api.github.com`（REST API，走代理） | ✅ 可访问（HTTP 200，已用其确认仓库存在） |
+| `github.com:443`（直连，禁用代理） | ❌ `Failed to connect`（本机网络无路由） |
+| `ssh.github.com:443`（SSH over HTTPS 端口） | ✅ 可连通（需自备密钥，见 02） |
+| **`api.github.com`（REST API，走代理）** | ✅ **可访问 —— 本次推送即走此通道** |
 
-结论：**本机无法直接走 HTTPS 推送**，但有两条可用路径（见下）。
+结论：本机 **不能** 用 `git push` 直接推送，但 REST API 通道畅通。
 
 ---
 
-## 01 · 路径 A（推荐）：授权 GitHub 连接器，由我完成推送
+## 01 · 本次实际采用：REST API 直推
 
-1. 在对话中安装并授权 **GitHub** 连接器（连接器菜单 → GitHub → 授权）。
-2. 授权后告诉我一声，我会直接：
-   - 推送 `main` 到 `origin`
-   - 因远程仅有自动生成的 22 字节 README（1 个提交、历史无关），将使用 `git push -u origin main --force` 覆盖，
-     你仓库根目录的正式 `README.md`（9.1KB）会替换掉那个占位文件
-3. 推送完成后我会在线上核对文件数与提交记录。
+脚本：`scripts_audit/push_via_api.py`。用 Git Data API 逐提交创建 blob / tree（`base_tree` 增量）/ commit，
+再更新分支 ref —— 完整保留提交历史，二进制文件以 base64 上传，不受「只能传文本」的限制。
+
+```bash
+export GH_TOKEN=github_pat_xxx                  # 需 Contents: Read and write
+python scripts_audit/push_via_api.py            # 空跑：打印每个提交的文件变更计划
+python scripts_audit/push_via_api.py --push     # 真正推送
+```
+
+实测要点：
+
+- 首次上传 173MB 约 11 分钟；脚本会复用 GitHub 端已存在的 blob，中断后重跑只补传增量
+- 令牌**不需要** `Workflows` 权限（仓库内现无 `.github/workflows/` 文件）
+- 路径含中文时需要 `core.quotepath=false`，脚本已内置
+- 首次推送会以 `force` 覆盖仓库里那条自动生成的 22 字节 README（本次已覆盖）
 
 ---
 
