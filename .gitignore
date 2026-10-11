@@ -1,0 +1,28 @@
+# ---------- 系统 / 编辑器 ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+
+# ---------- 依赖 ----------
+node_modules/
+
+# ---------- WorkBuddy 项目数据（记忆/追踪文件，不入库）----------
+.workbuddy/
+*.genie
+
+# ---------- 历史备份（保留在本地磁盘，不入库；避免仓库与部署包膨胀）----------
+*.bak-*
+*.r53bak
+R53_backup_index.html
+
+# ---------- 未被站点引用的原始素材备份目录（约 35MB，本地保留）----------
+portfolio/assets/images/kata/photo-orig-backup/
+portfolio/assets/images/qq-pk-orig-backup-20260929/
+portfolio/assets/images/qq-apply-orig-backup-20260929/
+portfolio/assets/images/qq-apply-prev-backup-20260929b/
+portfolio/assets/images/qq-apply-prev-backup-20260929c/
+
+# ---------- 本地素材后台上传记录（运行态）----------
+admin/_backup/
+admin/state.json

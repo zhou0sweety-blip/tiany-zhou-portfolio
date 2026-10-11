@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>内容替换后台 · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="hd">
+  <div class="hd__l">
+    <h1>内容替换后台</h1>
+    <p class="hd__s">改文字即时预览、自动写入 <code>assets/overrides.js</code>；上传图片即刻替换站点素材</p>
+  </div>
+  <div class="hd__r">
+    <span class="pill" id="st-site">检测站点…</span>
+    <span class="pill" id="st-save">已保存</span>
+    <a class="btn" id="open-site" href="/site/index.html#/home" target="_blank">新窗口打开站点</a>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab is-on" data-tab="media">图片 / 视频</button>
+  <button class="tab" data-tab="copy">文字内容</button>
+</nav>
+
+<main class="wrap">
+  <section class="col col--slots">
+    <!-- ── 图片 ── -->
+    <div class="pane is-on" data-pane="media">
+      <div class="tip">
+        <b>准备图片的三个原则</b>
+        <ol>
+          <li>按卡片上「建议尺寸」给图，比例接近即可 —— 容器用 <code>cover</code> 铺满，会自动裁切。</li>
+          <li>没有上传的槽位会保持现在的 CSS 概念插画，不会出现空白。</li>
+          <li>Hero 视频必须是 <b>H.264/AVC 编码的 .mp4</b>（HEVC 在 Chrome 里放不出来）。</li>
+        </ol>
+      </div>
+      <div id="groups"></div>
+    </div>
+
+    <!-- ── 文字 ── -->
+    <div class="pane" data-pane="copy">
+      <div class="tip tip--copy">
+        <b>怎么改文字</b>
+        <ol>
+          <li>在右边输入框里改 —— 停止输入约 1 秒后<b>自动保存</b>，左边预览<b>实时</b>更新。</li>
+          <li>标了 <code>HTML</code> 的字段可以写 <code>&lt;br&gt;</code>、<code>&lt;em&gt;</code> 等标签做换行与强调。</li>
+          <li>点字段右侧「还原」回到站点初始文案；改过的字段会标上绿点。</li>
+        </ol>
+      </div>
+      <div class="cpbar">
+        <input id="cp-search" type="search" placeholder="搜索字段 / 原文案…" autocomplete="off">
+        <span class="st" id="cp-count">—</span>
+        <button class="del" id="cp-reset-all">全部还原默认</button>
+      </div>
+      <div id="copyGroups" class="cp-loading">正在读取站点文案…</div>
+    </div>
+  </section>
+
+  <aside class="col col--prev">
+    <div class="prev__bar">
+      <span class="prev__t">实时预览</span>
+      <div class="prev__nav">
+        <button class="chip is-on" data-route="#/home">首页</button>
+        <button class="chip" data-route="#/work">Work</button>
+        <button class="chip" data-route="#/about">About</button>
+        <button class="chip" data-route="#/contact">Contact</button>
+        <button class="chip" id="reload">刷新</button>
+      </div>
+    </div>
+    <div class="prev__note" id="prev-note">当前：首页</div>
+    <iframe id="pv" src="/site/index.html#/home" title="站点预览"></iframe>
+  </aside>
+</main>
+
+<div class="toast" id="toast"></div>
+<script src="/app.js"></script>
+</body>
+</html>

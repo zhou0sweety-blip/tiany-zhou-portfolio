@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>字体系统 · Minimal Luxury</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --font-sans:"DM Sans","Noto Sans SC","Source Han Sans SC","Source Han Sans CN","思源黑体","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+  --font-serif:"Noto Serif SC","Source Han Serif SC","Songti SC",SimSun,serif;
+  --fs-hero:clamp(36px,5vw,72px);
+  --fs-h1:clamp(28px,3.2vw,44px);
+  --fs-h2:clamp(22px,2.3vw,32px);
+  --fs-proj:clamp(17px,1.5vw,24px);
+  --fs-lead:clamp(16px,1.25vw,18px);
+  --fs-body:clamp(14px,1.05vw,16px);
+  --fs-btn:clamp(11px,.9vw,13px);
+  --fs-nav:clamp(11px,.85vw,12px);
+  --fs-label:clamp(10px,.8vw,12px);
+  --fs-meta:clamp(10px,.8vw,11px);
+  --fs-cap:clamp(11px,.82vw,12px);
+  --mw-text:620px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;padding:34px 30px 60px;background:#FAF8F3;color:#1A1A16;
+  font-family:var(--font-sans);font-size:var(--fs-body);line-height:1.75;
+  font-synthesis:none;-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:900px;margin:0 auto}
+h4{
+  margin:30px 0 10px;font-size:var(--fs-label);letter-spacing:.09em;text-transform:uppercase;
+  font-weight:600;color:#9A9A8E;
+}
+.row{border-top:1px solid #E5E1D6;padding-top:16px;margin-top:26px}
+.hint{margin:6px 0 0;font-size:var(--fs-cap);line-height:1.7;color:#9A9A8E}
+.s{display:block;margin:0}
+.w400{font-weight:400}.w500{font-weight:500}.w600{font-weight:600}
+.specimen{margin:0;max-width:var(--mw-text)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="row" style="border-top:0;margin-top:0;padding-top:0">
+    <h4>字体系统 · 3 个家族</h4>
+    <p style="margin:0;font-size:var(--fs-lead);max-width:var(--mw-text)">
+      Latin：<b style="font-weight:600">DM Sans</b> 400 / 500 / 600 —— 正文、标题、UI、导航<br>
+      中文：<b style="font-weight:600">Noto Sans SC</b> 400 / 500 / 700 —— 正文与标题统一黑体<br>
+      衬线：<b style="font-weight:600">Noto Serif SC</b> 400 —— 仅少量「设计理念」标题，不进正文
+    </p>
+  </div>
+
+  <div class="row">
+    <h4>01 · 英文正文 / 标题 — DM Sans</h4>
+    <p class="specimen w400">The quick brown fox jumps over the lazy dog. 0123456789 — ABCDEFGHIJKLM</p>
+    <p class="specimen w400">I create meaningful visual experiences through design, turning ideas into unique brand stories.</p>
+    <p class="specimen w500">Weight 500 · 标题与强调</p>
+    <p class="specimen w600">Weight 600 · 小标签 / 次级标题</p>
+    <p class="hint">正文字号 14–16px，行高 1.75，最大宽度 620px；标题不出现 700 以上字重。</p>
+  </div>
+
+  <div class="row">
+    <h4>02 · 中文正文 / 标题 — Noto Sans SC</h4>
+    <p class="specimen w400">视觉设计师 · 常驻上海。我通过设计创造有意义的视觉体验，把想法转化为独特的品牌故事。</p>
+    <p class="specimen w400">品牌识别 / 网页设计 / 视觉企划 / 界面体验 / 包装系统 · 0123456789 · 标点符号，。"《》【】——</p>
+    <p class="specimen w600">中等字重 500 — 600 · 中文标题（吃 600 时实际落到 Noto Sans SC 700）</p>
+    <p class="hint">中文一律黑体，不落系统宋体；正字距、行高 1.8–1.9。</p>
+  </div>
+
+  <div class="row">
+    <h4>03 · 字号梯度（把窗口拉窄可看移动端取值）</h4>
+    <p class="s" style="font-size:var(--fs-hero);font-weight:500;line-height:1.1;letter-spacing:-.02em">首页主标题 56–72</p>
+    <p class="s" style="font-size:var(--fs-h1);font-weight:500;line-height:1.14;margin-top:16px">页面主标题 H1 32–44</p>
+    <p class="s" style="font-size:var(--fs-h2);font-weight:500;line-height:1.22;margin-top:16px">区块标题 H2 24–32</p>
+    <p class="s" style="font-size:var(--fs-proj);font-weight:500;line-height:1.3;margin-top:16px">项目 / 卡片标题 17–24</p>
+    <p class="s" style="font-size:var(--fs-lead);margin-top:16px;max-width:var(--mw-text)">项目简介 16–18 —— 中英混排时行高 1.75，行长控制在 620px 以内。</p>
+    <p class="s" style="font-size:var(--fs-body);margin-top:12px;max-width:var(--mw-text)">正文 14–16 —— 桌面 15–16px，移动端 14px，行高 1.75。</p>
+    <p class="s" style="font-size:var(--fs-btn);font-weight:600;letter-spacing:.09em;text-transform:uppercase;margin-top:16px">按钮 11–13</p>
+    <p class="s" style="font-size:var(--fs-nav);font-weight:500;letter-spacing:.09em;text-transform:uppercase;margin-top:8px">导航 11–12</p>
+    <p class="s" style="font-size:var(--fs-label);font-weight:600;letter-spacing:.09em;text-transform:uppercase;margin-top:8px;color:#5F5F55">小标签 / 角标 10–12</p>
+    <p class="s" style="font-size:var(--fs-meta);font-weight:600;letter-spacing:.09em;text-transform:uppercase;margin-top:8px;color:#9A9A8E">元信息 / 编号 10–11</p>
+    <p class="s" style="font-size:var(--fs-cap);margin-top:8px;color:#9A9A8E">图注 / 说明 11–12</p>
+  </div>
+
+  <div class="row">
+    <h4>04 · 唯一的衬线落点 — Noto Serif SC（设计理念）</h4>
+    <p style="font-family:var(--font-serif);font-size:var(--fs-h1);line-height:1.5;margin:0;max-width:20ch">设计是品牌无声的代言人</p>
+    <p class="hint">仅用于设计理念类标题，正文与 UI 一律无衬线。</p>
+  </div>
+
+</div>
+</body>
+</html>

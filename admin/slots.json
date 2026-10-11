@@ -1,0 +1,2019 @@
+{
+  "site": "portfolio/index.html",
+  "mediaDir": "assets/media",
+  "slots": [
+    {
+      "id": "brand-logo",
+      "group": "品牌",
+      "name": "首页品牌字标",
+      "kind": "override",
+      "contain": true,
+      "desc": "首屏居中显示的脚本字标。透明背景最佳。",
+      "desktop": "230×55",
+      "mobile": "210×50",
+      "recommend": "920×220（或 SVG）",
+      "ratio": "约 4.2 : 1",
+      "ext": [
+        "png",
+        "svg",
+        "webp"
+      ],
+      "page": "首页 Hero"
+    },
+    {
+      "id": "hero-bg",
+      "group": "品牌",
+      "name": "首页 Hero 底图（静态图）",
+      "kind": "hero-image",
+      "desc": "换成静态图后仍保留「指针视差 + 跟随柔光」。",
+      "desktop": "1440×1122",
+      "mobile": "390×293",
+      "recommend": "2560×1440",
+      "ratio": "随视口，cover 铺满",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页 Hero",
+      "note": "与「Hero 视频」二选一"
+    },
+    {
+      "id": "hero-video",
+      "group": "品牌",
+      "name": "首页 Hero 底图（视频）",
+      "kind": "hero-video",
+      "desc": "替换后按 video-loop 循环播放 + 指针视差跟随（瞳孔擦洗需另标定）。",
+      "desktop": "1440×1122",
+      "mobile": "390×293",
+      "recommend": "1920×1080 · H.264 · ≤10s",
+      "ratio": "16:9",
+      "ext": [
+        "mp4"
+      ],
+      "page": "首页 Hero",
+      "note": "必须是 H.264/AVC，HEVC 在 Chrome 无法播放"
+    },
+    {
+      "id": "cover-rarebeauty",
+      "group": "作品封面",
+      "name": "Rare Beauty · 封面",
+      "kind": "override",
+      "desc": "首页作品行 + Work 网格卡片共用同一张。",
+      "desktop": "1340×574",
+      "mobile": "350×241",
+      "recommend": "2400×1030",
+      "ratio": "2.33 : 1（宽幅）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页 / Work",
+      "visible": true
+    },
+    {
+      "id": "cover-clapoclap",
+      "group": "作品封面",
+      "name": "Clap o clap · 封面",
+      "kind": "override",
+      "desc": "首页作品行 + Work 网格卡片共用同一张。⚠️ Clap o clap 已改播视频（portfolio/assets/video/clapoclap-cover.mp4，由项目数据里的 heroVideo 指定），此处上传的图只作为视频起播前的封面 / prefers-reduced-motion 时的静态帧，视频正常起播后会被盖住。",
+      "desktop": "1340×574",
+      "mobile": "350×241",
+      "recommend": "2400×1030",
+      "ratio": "2.33 : 1（宽幅）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页 / Work",
+      "visible": true
+    },
+    {
+      "id": "cover-qinqiqiu",
+      "group": "作品封面",
+      "name": "亲气球 · 封面",
+      "kind": "override",
+      "desc": "首页作品行 + Work 网格卡片共用同一张。",
+      "desktop": "1340×574",
+      "mobile": "350×241",
+      "recommend": "2400×1030",
+      "ratio": "2.33 : 1（宽幅）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页 / Work",
+      "visible": true
+    },
+    {
+      "id": "cover-kata",
+      "group": "作品封面",
+      "name": "卡塔 · 封面",
+      "kind": "override",
+      "desc": "首页作品行 + Work 网格卡片共用同一张。",
+      "desktop": "1340×574",
+      "mobile": "350×241",
+      "recommend": "2400×1030",
+      "ratio": "2.33 : 1（宽幅）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页 / Work",
+      "visible": true
+    },
+    {
+      "id": "cover-merch",
+      "group": "作品封面",
+      "name": "品牌周边礼品 · 封面",
+      "kind": "override",
+      "desc": "首页作品行 + Work 网格卡片共用同一张。",
+      "desktop": "1340×574",
+      "mobile": "350×241",
+      "recommend": "2400×1030",
+      "ratio": "2.33 : 1（宽幅）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页 / Work",
+      "visible": true
+    },
+    {
+      "id": "cover-expo",
+      "group": "作品封面",
+      "name": "品牌展会 · 封面",
+      "kind": "override",
+      "desc": "首页作品行 + Work 网格卡片共用同一张。",
+      "desktop": "1340×574",
+      "mobile": "350×241",
+      "recommend": "2400×1030",
+      "ratio": "2.33 : 1（宽幅）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页 / Work",
+      "visible": true
+    },
+    {
+      "id": "cover-atelier",
+      "group": "作品封面",
+      "name": "Atelier Nine · 封面",
+      "kind": "override",
+      "desc": "首页作品行 + Work 网格卡片共用同一张。",
+      "desktop": "1340×574",
+      "mobile": "350×241",
+      "recommend": "2400×1030",
+      "ratio": "2.33 : 1（宽幅）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页 / Work",
+      "visible": false
+    },
+    {
+      "id": "cover-halo",
+      "group": "作品封面",
+      "name": "Halo · 封面",
+      "kind": "override",
+      "desc": "首页作品行 + Work 网格卡片共用同一张。",
+      "desktop": "1340×574",
+      "mobile": "350×241",
+      "recommend": "2400×1030",
+      "ratio": "2.33 : 1（宽幅）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页 / Work",
+      "visible": false
+    },
+    {
+      "id": "cover-dusk",
+      "group": "作品封面",
+      "name": "Bloom — Volume II · 封面",
+      "kind": "override",
+      "desc": "首页作品行 + Work 网格卡片共用同一张。",
+      "desktop": "1340×574",
+      "mobile": "350×241",
+      "recommend": "2400×1030",
+      "ratio": "2.33 : 1（宽幅）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页 / Work",
+      "visible": false
+    },
+    {
+      "id": "hero-rarebeauty",
+      "group": "项目主图",
+      "name": "Rare Beauty · 详情页主图",
+      "kind": "override",
+      "desc": "项目详情页顶部大图；自带子模板的项目不走这个位置。",
+      "desktop": "804×541",
+      "mobile": "350×645",
+      "recommend": "1800×1200",
+      "ratio": "约 3 : 2（略高的图更稳）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "项目详情页",
+      "visible": true
+    },
+    {
+      "id": "hero-clapoclap",
+      "group": "项目主图",
+      "name": "Clap o clap · 详情页主图",
+      "kind": "override",
+      "desc": "项目详情页顶部大图；自带子模板的项目不走这个位置。",
+      "desktop": "804×541",
+      "mobile": "350×620",
+      "recommend": "1800×1200",
+      "ratio": "约 3 : 2（略高的图更稳）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "项目详情页",
+      "visible": true
+    },
+    {
+      "id": "hero-qinqiqiu",
+      "group": "项目主图",
+      "name": "亲气球 · 详情页主图",
+      "kind": "override",
+      "desc": "项目详情页顶部大图；自带子模板的项目不走这个位置。",
+      "desktop": "804×430~618",
+      "mobile": "350×425~645",
+      "recommend": "1800×1200",
+      "ratio": "约 3 : 2（略高的图更稳）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "项目详情页",
+      "visible": false
+    },
+    {
+      "id": "hero-kata",
+      "group": "项目主图",
+      "name": "卡塔 · 详情页主图",
+      "kind": "override",
+      "desc": "项目详情页顶部大图；自带子模板的项目不走这个位置。",
+      "desktop": "804×618",
+      "mobile": "350×645",
+      "recommend": "1800×1200",
+      "ratio": "约 3 : 2（略高的图更稳）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "项目详情页",
+      "visible": true
+    },
+    {
+      "id": "hero-merch",
+      "group": "项目主图",
+      "name": "品牌周边礼品 · 详情页主图",
+      "kind": "override",
+      "desc": "项目详情页顶部大图；自带子模板的项目不走这个位置。",
+      "desktop": "804×430~618",
+      "mobile": "350×425~645",
+      "recommend": "1800×1200",
+      "ratio": "约 3 : 2（略高的图更稳）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "项目详情页",
+      "visible": false
+    },
+    {
+      "id": "hero-expo",
+      "group": "项目主图",
+      "name": "品牌展会 · 详情页主图",
+      "kind": "override",
+      "desc": "项目详情页顶部大图；自带子模板的项目不走这个位置。",
+      "desktop": "804×430~618",
+      "mobile": "350×425~645",
+      "recommend": "1800×1200",
+      "ratio": "约 3 : 2（略高的图更稳）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "项目详情页",
+      "visible": false
+    },
+    {
+      "id": "hero-atelier",
+      "group": "项目主图",
+      "name": "Atelier Nine · 详情页主图",
+      "kind": "override",
+      "desc": "项目详情页顶部大图；自带子模板的项目不走这个位置。",
+      "desktop": "804×430",
+      "mobile": "350×425",
+      "recommend": "1800×1200",
+      "ratio": "约 3 : 2（略高的图更稳）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "项目详情页",
+      "visible": true
+    },
+    {
+      "id": "hero-halo",
+      "group": "项目主图",
+      "name": "Halo · 详情页主图",
+      "kind": "override",
+      "desc": "项目详情页顶部大图；自带子模板的项目不走这个位置。",
+      "desktop": "804×430",
+      "mobile": "350×485",
+      "recommend": "1800×1200",
+      "ratio": "约 3 : 2（略高的图更稳）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "项目详情页",
+      "visible": true
+    },
+    {
+      "id": "hero-dusk",
+      "group": "项目主图",
+      "name": "Bloom — Volume II · 详情页主图",
+      "kind": "override",
+      "desc": "项目详情页顶部大图；自带子模板的项目不走这个位置。",
+      "desktop": "804×430",
+      "mobile": "350×425",
+      "recommend": "1800×1200",
+      "ratio": "约 3 : 2（略高的图更稳）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "项目详情页",
+      "visible": true
+    },
+    {
+      "id": "promo-rarebeauty",
+      "group": "推广卡",
+      "name": "Rare Beauty · 首页推广卡",
+      "kind": "override",
+      "desc": "首页推广位的小幅配图。",
+      "desktop": "322×270",
+      "mobile": "350×219",
+      "recommend": "800×680",
+      "ratio": "约 1.19 : 1",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页",
+      "visible": true
+    },
+    {
+      "id": "promo-clapoclap",
+      "group": "推广卡",
+      "name": "Clap o clap · 首页推广卡",
+      "kind": "override",
+      "desc": "首页推广位的小幅配图。",
+      "desktop": "322×270",
+      "mobile": "350×219",
+      "recommend": "800×680",
+      "ratio": "约 1.19 : 1",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页",
+      "visible": true
+    },
+    {
+      "id": "promo-qinqiqiu",
+      "group": "推广卡",
+      "name": "亲气球 · 首页推广卡",
+      "kind": "override",
+      "desc": "首页推广位的小幅配图。",
+      "desktop": "322×270",
+      "mobile": "350×219",
+      "recommend": "800×680",
+      "ratio": "约 1.19 : 1",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页",
+      "visible": false
+    },
+    {
+      "id": "promo-kata",
+      "group": "推广卡",
+      "name": "卡塔 · 首页推广卡",
+      "kind": "override",
+      "desc": "首页推广位的小幅配图。",
+      "desktop": "322×270",
+      "mobile": "350×219",
+      "recommend": "800×680",
+      "ratio": "约 1.19 : 1",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页",
+      "visible": true
+    },
+    {
+      "id": "promo-merch",
+      "group": "推广卡",
+      "name": "品牌周边礼品 · 首页推广卡",
+      "kind": "override",
+      "desc": "首页推广位的小幅配图。",
+      "desktop": "322×270",
+      "mobile": "350×219",
+      "recommend": "800×680",
+      "ratio": "约 1.19 : 1",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页",
+      "visible": false
+    },
+    {
+      "id": "promo-expo",
+      "group": "推广卡",
+      "name": "品牌展会 · 首页推广卡",
+      "kind": "override",
+      "desc": "首页推广位的小幅配图。",
+      "desktop": "322×270",
+      "mobile": "350×219",
+      "recommend": "800×680",
+      "ratio": "约 1.19 : 1",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页",
+      "visible": false
+    },
+    {
+      "id": "promo-atelier",
+      "group": "推广卡",
+      "name": "Atelier Nine · 首页推广卡",
+      "kind": "override",
+      "desc": "首页推广位的小幅配图。",
+      "desktop": "322×270",
+      "mobile": "350×219",
+      "recommend": "800×680",
+      "ratio": "约 1.19 : 1",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页",
+      "visible": true
+    },
+    {
+      "id": "promo-halo",
+      "group": "推广卡",
+      "name": "Halo · 首页推广卡",
+      "kind": "override",
+      "desc": "首页推广位的小幅配图。",
+      "desktop": "322×270",
+      "mobile": "350×219",
+      "recommend": "800×680",
+      "ratio": "约 1.19 : 1",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页",
+      "visible": true
+    },
+    {
+      "id": "promo-dusk",
+      "group": "推广卡",
+      "name": "Bloom — Volume II · 首页推广卡",
+      "kind": "override",
+      "desc": "首页推广位的小幅配图。",
+      "desktop": "322×270",
+      "mobile": "350×219",
+      "recommend": "800×680",
+      "ratio": "约 1.19 : 1",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "首页",
+      "visible": true
+    },
+    {
+      "id": "wechat-qr",
+      "group": "图标与二维码",
+      "name": "微信二维码",
+      "kind": "file",
+      "path": "assets/images/wechat-qr.png",
+      "desc": "联系页的微信二维码，直接覆盖同名文件即可。",
+      "desktop": "190×190",
+      "mobile": "166×166",
+      "recommend": "700×700",
+      "ratio": "1 : 1 方形",
+      "ext": [
+        "png",
+        "jpg"
+      ],
+      "page": "联系页",
+      "visible": true
+    },
+    {
+      "id": "icon-linkedin",
+      "group": "图标与二维码",
+      "name": "LinkedIn 图标",
+      "kind": "file",
+      "path": "assets/icons/linkedin.svg",
+      "desc": "页脚社交图标，单色、透明背景。",
+      "desktop": "25×25",
+      "mobile": "30×30",
+      "recommend": "24×24 SVG",
+      "ratio": "1 : 1",
+      "ext": [
+        "svg",
+        "png"
+      ],
+      "page": "全站页脚",
+      "visible": true
+    },
+    {
+      "id": "icon-instagram",
+      "group": "图标与二维码",
+      "name": "Instagram 图标",
+      "kind": "file",
+      "path": "assets/icons/instagram.svg",
+      "desc": "页脚社交图标，单色、透明背景。",
+      "desktop": "25×25",
+      "mobile": "30×30",
+      "recommend": "24×24 SVG",
+      "ratio": "1 : 1",
+      "ext": [
+        "svg",
+        "png"
+      ],
+      "page": "全站页脚",
+      "visible": true
+    },
+    {
+      "id": "icon-tiktok",
+      "group": "图标与二维码",
+      "name": "TikTok 图标",
+      "kind": "file",
+      "path": "assets/icons/tiktok.svg",
+      "desc": "页脚社交图标，单色、透明背景。",
+      "desktop": "25×25",
+      "mobile": "30×30",
+      "recommend": "24×24 SVG",
+      "ratio": "1 : 1",
+      "ext": [
+        "svg",
+        "png"
+      ],
+      "page": "全站页脚",
+      "visible": true
+    },
+    {
+      "id": "qq-brand-01",
+      "group": "亲气球案例",
+      "name": "品牌影像 · 滋味",
+      "kind": "file",
+      "path": "assets/images/qq-brand-01.jpg",
+      "desc": "Hero 下方四格品牌影像，cover 裁切铺满。",
+      "desktop": "325×243",
+      "mobile": "170×128",
+      "recommend": "1300×975",
+      "ratio": "4 : 3",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页",
+      "visible": true
+    },
+    {
+      "id": "qq-brand-02",
+      "group": "亲气球案例",
+      "name": "品牌影像 · 活力",
+      "kind": "file",
+      "path": "assets/images/qq-brand-02.jpg",
+      "desc": "Hero 下方四格品牌影像，cover 裁切铺满。",
+      "desktop": "325×243",
+      "mobile": "170×128",
+      "recommend": "1300×975",
+      "ratio": "4 : 3",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页",
+      "visible": true
+    },
+    {
+      "id": "qq-brand-03",
+      "group": "亲气球案例",
+      "name": "品牌影像 · 女孩",
+      "kind": "file",
+      "path": "assets/images/qq-brand-03.jpg",
+      "desc": "Hero 下方四格品牌影像，cover 裁切铺满。",
+      "desktop": "325×243",
+      "mobile": "170×128",
+      "recommend": "1300×975",
+      "ratio": "4 : 3",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页",
+      "visible": true
+    },
+    {
+      "id": "qq-brand-04",
+      "group": "亲气球案例",
+      "name": "品牌影像 · 清新",
+      "kind": "file",
+      "path": "assets/images/qq-brand-04.jpg",
+      "desc": "Hero 下方四格品牌影像，cover 裁切铺满。",
+      "desktop": "325×243",
+      "mobile": "170×128",
+      "recommend": "1300×975",
+      "ratio": "4 : 3",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页",
+      "visible": true
+    },
+    {
+      "id": "qq-apply-01",
+      "group": "亲气球案例",
+      "name": "品牌应用 · 标志落版",
+      "kind": "file",
+      "path": "assets/images/qq-apply-01.jpg",
+      "desc": "「Brand in Use」标志组合规范图：四种气泡图形（圆点/气泡/有机形/爆炸形）+ 中英标准字，白底 4:3 版式。",
+      "desktop": "663×497",
+      "mobile": "350×263",
+      "recommend": "1330×1000",
+      "ratio": "4 : 3",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页",
+      "visible": true
+    },
+    {
+      "id": "qq-apply-02",
+      "group": "亲气球案例",
+      "name": "品牌应用 · 帆布袋",
+      "kind": "file",
+      "path": "assets/images/qq-apply-02.jpg",
+      "desc": "「Brand in Use」帆布袋应用实拍：亲气球 + 语气气泡印花，蓝底棚拍。",
+      "desktop": "663×497",
+      "mobile": "350×263",
+      "recommend": "1330×1000",
+      "ratio": "4 : 3",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页",
+      "visible": true
+    },
+    {
+      "id": "qq-apply-03",
+      "group": "亲气球案例",
+      "name": "品牌应用 · 气球抱枕",
+      "kind": "file",
+      "path": "assets/images/qq-apply-03.jpg",
+      "desc": "「Brand in Use」气球造型产品特写：粉/橙/绿/蓝多色 亲气球 印花。",
+      "desktop": "663×497",
+      "mobile": "350×263",
+      "recommend": "1330×1000",
+      "ratio": "4 : 3",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页",
+      "visible": true
+    },
+    {
+      "id": "qq-apply-04",
+      "group": "亲气球案例",
+      "name": "品牌应用 · 周边延展",
+      "kind": "file",
+      "path": "assets/images/qq-apply-04.jpg",
+      "desc": "「Brand in Use」周边挂卡实拍：STAFF 工作牌 · 气泡造型吊牌组合。",
+      "desktop": "663×497",
+      "mobile": "350×263",
+      "recommend": "1330×1000",
+      "ratio": "4 : 3",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页",
+      "visible": true
+    },
+    {
+      "id": "qq-ms-01",
+      "group": "亲气球案例",
+      "name": "商详长图 · 粉色系",
+      "kind": "file",
+      "path": "assets/images/qq-ms-01.jpg",
+      "desc": "手机屏内的商品详情页长图。宽度 100% 铺满屏，高度不限，鼠标/触屏上下滑可浏览；替换后滚动行程自动按新图高度重算。当前 330×5977。",
+      "desktop": "163×2953（按宽度铺满）",
+      "mobile": "92×1673",
+      "recommend": "宽 660 的长图（高度不限，约 1:18）",
+      "ratio": "宽度铺满 · 高度自由",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页",
+      "visible": true
+    },
+    {
+      "id": "qq-ms-02",
+      "group": "亲气球案例",
+      "name": "商详长图 · 茉莉",
+      "kind": "file",
+      "path": "assets/images/qq-ms-02.jpg",
+      "desc": "手机屏内的商品详情页长图。宽度 100% 铺满屏，高度不限，鼠标/触屏上下滑可浏览；替换后滚动行程自动按新图高度重算。当前 330×6600。",
+      "desktop": "163×2953（按宽度铺满）",
+      "mobile": "92×1673",
+      "recommend": "宽 660 的长图（高度不限，约 1:18）",
+      "ratio": "宽度铺满 · 高度自由",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页",
+      "visible": true
+    },
+    {
+      "id": "qq-ms-03",
+      "group": "亲气球案例",
+      "name": "商详长图 · 薄荷绿",
+      "kind": "file",
+      "path": "assets/images/qq-ms-03.jpg",
+      "desc": "手机屏内的商品详情页长图。宽度 100% 铺满屏，高度不限，鼠标/触屏上下滑可浏览；替换后滚动行程自动按新图高度重算。当前 330×6151。",
+      "desktop": "163×2953（按宽度铺满）",
+      "mobile": "92×1673",
+      "recommend": "宽 660 的长图（高度不限，约 1:18）",
+      "ratio": "宽度铺满 · 高度自由",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页",
+      "visible": true
+    },
+    {
+      "id": "qq-graphic",
+      "group": "亲气球案例",
+      "name": "图形应用 · 语气气泡组合（A-7.1）",
+      "kind": "file",
+      "path": "assets/images/qq-graphic.jpg",
+      "desc": "「Graphic Application」整幅图形素材，满铺卡片。桌面端卡片比例与素材同为 16:9（零裁切零留边）；窄屏按 contain 补边，补边色与素材底色 `#FCFAEE` 一致，所以不会露色。素材四周需自带 13%~21% 留白，否则窄屏会被贴边裁掉。当前 2800×1575。",
+      "desktop": "1340×754",
+      "mobile": "350×197（卡片 350×241，上下补边）",
+      "recommend": "2800×1575",
+      "ratio": "16 : 9",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页",
+      "visible": true
+    },
+    {
+      "id": "qq-lock-h",
+      "group": "亲气球案例",
+      "name": "标准字字格 · 横向 3x",
+      "kind": "file",
+      "path": "assets/images/qq-lock-h.png",
+      "desc": "A-1.1 放大使用规范左格。白底规范图，面板压成纯白、按宽度铺满并保持原始比例（不裁切）。当前 855×585。",
+      "desktop": "629×430",
+      "mobile": "330×226",
+      "recommend": "1710×1170（2 倍）",
+      "ratio": "1.46 : 1",
+      "ext": [
+        "png",
+        "jpg",
+        "jpeg",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页",
+      "visible": true
+    },
+    {
+      "id": "qq-lock-v",
+      "group": "亲气球案例",
+      "name": "标准字字格 · 竖向 2x",
+      "kind": "file",
+      "path": "assets/images/qq-lock-v.png",
+      "desc": "A-1.1 放大使用规范右格。白底规范图，按宽度铺满并保持原始比例（不裁切）。竖直版比横版高，两格在网格里等高、内容顶对齐，横格下方留白不可见。当前 729×750。",
+      "desktop": "629×647",
+      "mobile": "330×340",
+      "recommend": "1458×1500（2 倍）",
+      "ratio": "0.97 : 1",
+      "ext": [
+        "png",
+        "jpg",
+        "jpeg",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页",
+      "visible": true
+    },
+    {
+      "id": "rarebeauty-video",
+      "group": "项目视频",
+      "name": "Rare Beauty 产品渲染动画",
+      "kind": "file",
+      "path": "assets/video/rarebeauty-render.mp4",
+      "desc": "Banner 右侧自动播放的渲染动画（静音循环）。换成别的片子请仍用 H.264/AVC 的 .mp4，HEVC 浏览器放不出来。",
+      "desktop": "804×约500（cover 裁切）",
+      "mobile": "390×约420（半透明背景）",
+      "recommend": "1440×952 · H.264 · ≤6 秒 · ≤5 MB",
+      "ratio": "约 1.51 : 1",
+      "ext": [
+        "mp4"
+      ],
+      "page": "作品 · Rare Beauty 详情页",
+      "visible": true
+    },
+    {
+      "id": "rarebeauty-poster",
+      "group": "项目视频",
+      "name": "Rare Beauty 动画首帧海报",
+      "kind": "file",
+      "path": "assets/images/rarebeauty-render.jpg",
+      "desc": "视频加载前 / 系统开了「减少动态效果」时显示的一帧真截图。建议直接从视频首帧导出。",
+      "desktop": "804×约500",
+      "mobile": "390×约420",
+      "recommend": "1440×952",
+      "ratio": "同视频",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Rare Beauty 详情页",
+      "visible": true
+    },
+    {
+      "id": "rarebeauty-dir-1",
+      "group": "设计方向卡",
+      "name": "Rare Beauty · 设计方向 ① 3D Modelling",
+      "kind": "override",
+      "desc": "详情页「Design Direction」四宫格第 1 张 —— 产品形态整组（两只立瓶 + 侧倒滚珠瓶 + 瓶盖）。容器固定 aspect-ratio:4/3，素材必须同为 4:3，否则被 cover 静默裁切；卡片左下角压着一条深色标签，那个角落别放关键信息。",
+      "desktop": "418×313",
+      "mobile": "350×263",
+      "recommend": "≥ 900×675，且必须 4:3（当前 1200×900，零裁切）",
+      "ratio": "固定 4 : 3",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Rare Beauty 详情页",
+      "visible": true
+    },
+    {
+      "id": "rarebeauty-dir-2",
+      "group": "设计方向卡",
+      "name": "Rare Beauty · 设计方向 ② Material & Shading",
+      "kind": "override",
+      "desc": "详情页「Design Direction」四宫格第 2 张 —— 金属瓶身拉丝微距 + 压印标准字（材质与着色）。容器固定 aspect-ratio:4/3，素材必须同为 4:3，否则被 cover 静默裁切；卡片左下角压着一条深色标签，那个角落别放关键信息。",
+      "desktop": "418×313",
+      "mobile": "350×263",
+      "recommend": "≥ 900×675，且必须 4:3（当前 1200×900，零裁切）",
+      "ratio": "固定 4 : 3",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Rare Beauty 详情页",
+      "visible": true
+    },
+    {
+      "id": "rarebeauty-dir-3",
+      "group": "设计方向卡",
+      "name": "Rare Beauty · 设计方向 ③ Lighting",
+      "kind": "override",
+      "desc": "详情页「Design Direction」四宫格第 3 张 —— 滚珠球头镜面高光（灯光研究）。容器固定 aspect-ratio:4/3，素材必须同为 4:3，否则被 cover 静默裁切；卡片左下角压着一条深色标签，那个角落别放关键信息。",
+      "desktop": "418×313",
+      "mobile": "350×263",
+      "recommend": "≥ 900×675，且必须 4:3（当前 1200×900，零裁切）",
+      "ratio": "固定 4 : 3",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Rare Beauty 详情页",
+      "visible": true
+    },
+    {
+      "id": "rarebeauty-dir-4",
+      "group": "设计方向卡",
+      "name": "Rare Beauty · 设计方向 ④ Scene Rendering",
+      "kind": "override",
+      "desc": "详情页「Design Direction」四宫格第 4 张 —— 场景摆放（立瓶 + 倒瓶 + 瓶盖）。容器固定 aspect-ratio:4/3，素材必须同为 4:3，否则被 cover 静默裁切；卡片左下角压着一条深色标签，那个角落别放关键信息。",
+      "desktop": "418×313",
+      "mobile": "350×263",
+      "recommend": "≥ 900×675，且必须 4:3（当前 1200×900，零裁切）",
+      "ratio": "固定 4 : 3",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Rare Beauty 详情页",
+      "visible": true
+    },
+    {
+      "id": "rarebeauty-kv-1",
+      "group": "Rare Beauty · 提案视觉",
+      "name": "Rare Beauty · 提案主视觉 · 产品家族全景",
+      "kind": "override",
+      "desc": "「01 品牌提案视觉」的全宽主视觉（图下带标题与说明）。素材为产品家族全景渲染（粉饼/粉底/唇釉/遮瑕同框）。 🚨 容器画幅框固定 aspect-ratio:1.515/1，素材必须同为 ≈1.515:1，否则被 cover 静默裁切。当前素材已按该比例预裁，零裁切。",
+      "desktop": "1340×884（1440 视口主视觉全宽）",
+      "mobile": "350×232",
+      "recommend": "≥ 1920×1267，比例 1.515:1（当前 1920×1267，零裁切）",
+      "ratio": "固定 1.515 : 1",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Rare Beauty 详情页",
+      "visible": true
+    },
+    {
+      "id": "rarebeauty-kv-2",
+      "group": "Rare Beauty · 提案视觉",
+      "name": "Rare Beauty · 提案视觉 · 膏状产品系列",
+      "kind": "override",
+      "desc": "「01 品牌提案视觉」两列左卡。素材为玫瑰粉膏状管系列（弯月切口盖）。 🚨 容器画幅框固定 aspect-ratio:1.515/1，素材必须同为 ≈1.515:1，否则被 cover 静默裁切。当前素材已按该比例预裁，零裁切。",
+      "desktop": "658×434（1440 视口两列）",
+      "mobile": "330×218",
+      "recommend": "≥ 1920×1268，比例 1.515:1（当前 1920×1268，零裁切）",
+      "ratio": "固定 1.515 : 1",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Rare Beauty 详情页",
+      "visible": true
+    },
+    {
+      "id": "rarebeauty-kv-3",
+      "group": "Rare Beauty · 提案视觉",
+      "name": "Rare Beauty · 提案视觉 · 滚珠瓶系列",
+      "kind": "override",
+      "desc": "「01 品牌提案视觉」两列右卡。素材为滚珠瓶系列（半透磨砂瓶身 + 金属滚珠头）。 🚨 容器画幅框固定 aspect-ratio:1.515/1，素材必须同为 ≈1.515:1，否则被 cover 静默裁切。当前素材已按该比例预裁，零裁切。",
+      "desktop": "658×434（1440 视口两列）",
+      "mobile": "330×218",
+      "recommend": "≥ 1920×1266，比例 1.515:1（当前 1920×1266，零裁切）",
+      "ratio": "固定 1.515 : 1",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Rare Beauty 详情页",
+      "visible": true
+    },
+    {
+      "id": "rarebeauty-oth-1",
+      "group": "Rare Beauty · 提案视觉",
+      "name": "其他品牌提案 · SHEGLAM 唇釉套系",
+      "kind": "override",
+      "desc": "「02 其他品牌提案视觉」2×2 左上。素材为 SHEGLAM 唇釉套系（蓝调场景）。 🚨 容器画幅框固定 aspect-ratio:1.515/1，素材必须同为 ≈1.515:1，否则被 cover 静默裁切。当前素材已按该比例预裁，零裁切。",
+      "desktop": "658×434（1440 视口两列）",
+      "mobile": "330×218",
+      "recommend": "≥ 1920×1266，比例 1.515:1（当前 1920×1266，零裁切）",
+      "ratio": "固定 1.515 : 1",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Rare Beauty 详情页",
+      "visible": true
+    },
+    {
+      "id": "rarebeauty-oth-2",
+      "group": "Rare Beauty · 提案视觉",
+      "name": "其他品牌提案 · JIASEE 面霜套系",
+      "kind": "override",
+      "desc": "「02 其他品牌提案视觉」2×2 右上。素材为 JIASEE 琥珀玻璃罐面霜（顶光平铺）。 🚨 容器画幅框固定 aspect-ratio:1.515/1，素材必须同为 ≈1.515:1，否则被 cover 静默裁切。当前素材已按该比例预裁，零裁切。",
+      "desktop": "658×434（1440 视口两列）",
+      "mobile": "330×218",
+      "recommend": "≥ 1920×1266，比例 1.515:1（当前 1920×1266，零裁切）",
+      "ratio": "固定 1.515 : 1",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Rare Beauty 详情页",
+      "visible": true
+    },
+    {
+      "id": "rarebeauty-oth-3",
+      "group": "Rare Beauty · 提案视觉",
+      "name": "其他品牌提案 · onTop 护肤套装",
+      "kind": "override",
+      "desc": "「02 其他品牌提案视觉」2×2 左下。素材为 onTop 磨砂棕护肤套装（射灯聚光）。 🚨 容器画幅框固定 aspect-ratio:1.515/1，素材必须同为 ≈1.515:1，否则被 cover 静默裁切。当前素材已按该比例预裁，零裁切。",
+      "desktop": "658×434（1440 视口两列）",
+      "mobile": "330×218",
+      "recommend": "≥ 1920×1266，比例 1.515:1（当前 1920×1266，零裁切）",
+      "ratio": "固定 1.515 : 1",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Rare Beauty 详情页",
+      "visible": true
+    },
+    {
+      "id": "rarebeauty-oth-4",
+      "group": "Rare Beauty · 提案视觉",
+      "name": "其他品牌提案 · Amàxy 洗护系列",
+      "kind": "override",
+      "desc": "「02 其他品牌提案视觉」2×2 右下。素材为 Amàxy 透明泵瓶洗护系列（灰调场景 + 彩色环扣）。 🚨 容器画幅框固定 aspect-ratio:1.515/1，素材必须同为 ≈1.515:1，否则被 cover 静默裁切。当前素材已按该比例预裁，零裁切。",
+      "desktop": "658×434（1440 视口两列）",
+      "mobile": "330×218",
+      "recommend": "≥ 1920×1266，比例 1.515:1（当前 1920×1266，零裁切）",
+      "ratio": "固定 1.515 : 1",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Rare Beauty 详情页",
+      "visible": true
+    },
+    {
+      "id": "merch-lp-hero",
+      "group": "品牌周边 · 落地页",
+      "name": "品牌周边 · Hero 主图",
+      "kind": "override",
+      "desc": "详情页首屏右侧主图（礼盒全家福裁幅）。容器无固定 aspect-ratio（min-height 型），桌面约 1.25:1、手机 1.45:1，当前素材按几何中项 1.34:1 预裁，两端 cover 裁切都极小。换图建议 1.3~1.35:1、主体居中。",
+      "desktop": "792×634",
+      "mobile": "350×242",
+      "recommend": "≥ 1450×1080，1.34 : 1（当前 1451×1080）",
+      "ratio": "1.34 : 1",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 品牌周边礼品详情页",
+      "visible": true
+    },
+    {
+      "id": "merch-lp-craft",
+      "group": "品牌周边 · 落地页",
+      "name": "品牌周边 · 工艺宽幅图",
+      "kind": "override",
+      "desc": "「工艺不是装饰」区宽幅卡（透明亚克力包装细节）。桌面 1.34:1、手机 16:9，素材按桌面 1.34:1 预裁；手机端 cover 会裁上下约 25%，关键内容请放画面中带。",
+      "desktop": "482×359",
+      "mobile": "322×180",
+      "recommend": "≥ 1300×965，1.34 : 1（当前 1296×965）",
+      "ratio": "1.34 : 1（桌面）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 品牌周边礼品详情页",
+      "visible": true
+    },
+    {
+      "id": "merch-lp-story",
+      "group": "品牌周边 · 落地页",
+      "name": "品牌周边 · 品牌故事图",
+      "kind": "override",
+      "desc": "收尾品牌故事段近方图（2026 日历亚克力盒特写）。桌面 0.98:1（近方）、手机 1.35:1；素材按桌面近方预裁，手机端会裁上下，主体居中即可。",
+      "desktop": "466×475",
+      "mobile": "350×259",
+      "recommend": "≥ 930×950，0.98 : 1（当前 922×940）",
+      "ratio": "0.98 : 1（近方）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 品牌周边礼品详情页",
+      "visible": true
+    },
+    {
+      "id": "merch-lp-cal",
+      "group": "品牌周边 · 落地页",
+      "name": "品牌周边 · 日历场景图",
+      "kind": "override",
+      "desc": "「年度主推 · 新年日历」卡旁场景图（台历十二个月平铺）。桌面 1.14:1、手机 1.46:1，素材按几何中项 1.29:1 预裁，主台历居中、两侧月份卡为可裁背景。",
+      "desktop": "583×512",
+      "mobile": "350×240",
+      "recommend": "≥ 1390×1080，1.29 : 1（当前 1391×1080）",
+      "ratio": "1.29 : 1",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 品牌周边礼品详情页",
+      "visible": true
+    },
+    {
+      "id": "merch-lp-gift",
+      "group": "品牌周边 · 落地页",
+      "name": "品牌周边 · 礼盒定制横条",
+      "kind": "override",
+      "desc": "「礼盒与定制」卡旁超宽横条（桌面 3.18:1，全站最扁的图位之一）。当前未配图——提供的素材均为 1.8:1 左右横图，cover 会把上下各裁约 40% 切掉主体，故保留原占位。要配图请给 ≥2.9:1 的超宽原片。",
+      "desktop": "779×245",
+      "mobile": "350×203",
+      "recommend": "≥ 2340×735，3.18 : 1（超宽，暂缺）",
+      "ratio": "3.18 : 1（超宽横条）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 品牌周边礼品详情页",
+      "visible": true
+    },
+    {
+      "id": "expo-poster-1",
+      "group": "展会详情页海报",
+      "name": "品牌展会 · 海报①（EX-01 卡内图）",
+      "kind": "override",
+      "desc": "详情页「展位主视觉 · 年度主题」深绿卡里的作品图（图上文下卡）。2026-09-24 海报墙统一后这一格**框固定 2 : 3**（不再跟随图片比例），换任意其它比例的图都会被 cover 裁切 —— 请直接给 2 : 3 竖版。",
+      "desktop": "603×905",
+      "mobile": "310×465",
+      "recommend": "长边 2400（当前 1608×2400）",
+      "ratio": "固定 2 : 3 竖版（比例不符会被裁切）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 品牌展会 详情页",
+      "visible": true
+    },
+    {
+      "id": "expo-poster-2",
+      "group": "展会详情页海报",
+      "name": "品牌展会 · 海报②（现场卡① · 浅色卡）",
+      "kind": "override",
+      "desc": "第一行右侧浅色卡里的作品图（图上文下，与左卡同构同尺寸）。**框固定 2 : 3**，换任意其它比例的图都会被 cover 裁切 —— 请直接给 2 : 3 竖版。",
+      "desktop": "603×905",
+      "mobile": "310×465",
+      "recommend": "长边 2400（当前 1608×2400）",
+      "ratio": "固定 2 : 3 竖版（比例不符会被裁切）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 品牌展会 详情页",
+      "visible": true
+    },
+    {
+      "id": "expo-poster-3",
+      "group": "展会详情页海报",
+      "name": "品牌展会 · 海报③（满屏展示 · 全页最大）",
+      "kind": "override",
+      "desc": "「从一张展板，到一个完整的现场」下方那张满屏海报：整段跳出 1400px 内容框，左右铺到页边，高度按图片原始比例。全页显示面积最大的一张图，建议给足分辨率。",
+      "desktop": "1440×789（1440 视口；视口更宽则更宽）",
+      "mobile": "393×215",
+      "recommend": "宽 ≥ 2560（满屏宽 + 2× 高清屏；当前 1920×1052 在 27\" 屏上略软）",
+      "ratio": "跟随图片（当前 1.83 : 1 横版）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 品牌展会 详情页",
+      "visible": true
+    },
+    {
+      "id": "expo-poster-4",
+      "group": "展会详情页海报",
+      "name": "品牌展会 · 海报④（EX-02 卡内图）",
+      "kind": "override",
+      "desc": "「展板 · 邀请函 · 现场物料」浅色卡里的作品图（图上文下卡，与第一行同构同尺寸）。**框固定 2 : 3**，换任意其它比例的图都会被 cover 裁切 —— 请直接给 2 : 3 竖版。",
+      "desktop": "603×905",
+      "mobile": "310×465",
+      "recommend": "长边 2400（当前 1608×2400）",
+      "ratio": "固定 2 : 3 竖版（比例不符会被裁切）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 品牌展会 详情页",
+      "visible": true
+    },
+    {
+      "id": "expo-poster-5",
+      "group": "展会详情页海报",
+      "name": "品牌展会 · 海报⑤（现场卡② · 深绿卡）",
+      "kind": "override",
+      "desc": "第二行右侧深绿卡里的作品图（图上文下，与左卡同构同尺寸）。**框固定 2 : 3**，换任意其它比例的图都会被 cover 裁切 —— 请直接给 2 : 3 竖版。",
+      "desktop": "603×905",
+      "mobile": "310×465",
+      "recommend": "长边 2400（当前 1608×2400）",
+      "ratio": "固定 2 : 3 竖版（比例不符会被裁切）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 品牌展会 详情页",
+      "visible": true
+    },
+    {
+      "id": "expo-family",
+      "group": "展会详情页海报",
+      "name": "品牌展会 · 家族陈列带（产品家族全幅图）",
+      "kind": "override",
+      "desc": "详情页顶部那张满宽「产品家族陈列带」。⚠️ 这一格**框固定 2.35 : 1**（不像下面 5 张海报会跟随图片比例），素材比例不符就会被上下裁切 —— 建议直接给 2.35 : 1 的横图。当前素材是近正方的 1794×1632，竖裁 53%，已把取景点调成「保住上方站立那一排产品、下沿切在石块上」。",
+      "desktop": "1340×570（框固定 2.35 : 1）",
+      "mobile": "350×206",
+      "recommend": "宽 ≥ 2680、比例 2.35 : 1（当前 1794×1632 在 2× 高清屏上偏软）",
+      "ratio": "固定 2.35 : 1（素材会被 cover 裁切）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 品牌展会 详情页",
+      "visible": true
+    },
+    {
+      "id": "wwp-bro-1",
+      "group": "展会详情页海报",
+      "name": "品牌画册 · 主视觉（跨页实拍）",
+      "kind": "file",
+      "path": "assets/images/wwp-bro-1.jpg",
+      "desc": "「一本可以带走的展会」章节主视觉：画册跨页实拍（成品打样），全宽展示。⚠️ 框比例锁 1.62 : 1（2400×1478，与素材原生 4000×2464 一致 → 零裁切），换图请保持同比例，否则静默裁边。",
+      "desktop": "1372×845",
+      "mobile": "350×216",
+      "recommend": "宽 ≥ 2400、比例 1.62 : 1（当前 2400×1478）",
+      "ratio": "1.62 : 1（4000×2464）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 品牌展会 详情页",
+      "visible": true
+    },
+    {
+      "id": "wwp-bro-2",
+      "group": "展会详情页海报",
+      "name": "品牌画册 · 辅图 B（提案封面页）",
+      "kind": "file",
+      "path": "assets/images/wwp-bro-2.jpg",
+      "desc": "画册章两张辅图之一（左）：提案定稿封面页（含项目背景文字），与辅图 C 等宽 16 : 9 两列。换图请保持 16 : 9，否则静默裁边。",
+      "desktop": "679×382",
+      "mobile": "350×197",
+      "recommend": "宽 ≥ 2000、比例 16 : 9（当前 2000×1125）",
+      "ratio": "16 : 9（4000×2250）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 品牌展会 详情页",
+      "visible": true
+    },
+    {
+      "id": "wwp-bro-3",
+      "group": "展会详情页海报",
+      "name": "品牌画册 · 辅图 C（16 页版式总览）",
+      "kind": "file",
+      "path": "assets/images/wwp-bro-3.jpg",
+      "desc": "画册章两张辅图之一（右）：全套 16 页版式总览，与辅图 B 等宽 16 : 9 两列。图内含小字版面，分辨率别低于 2000 宽。换图请保持 16 : 9，否则静默裁边。",
+      "desktop": "679×382",
+      "mobile": "350×197",
+      "recommend": "宽 ≥ 2000、比例 16 : 9（当前 2000×1125）",
+      "ratio": "16 : 9（4000×2250）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 品牌展会 详情页",
+      "visible": true
+    },
+    {
+      "id": "clapoclap-hero",
+      "group": "Clap o clap · CMF 提案页",
+      "name": "CMF 提案 · 封面主视觉（整带出血）",
+      "kind": "override",
+      "desc": "详情页封面整条背景（全出血，左右铺到页边）。✅ 图上**不再压任何文字**（2026-09-23 起封面文案已拆成下方独立区块），所以不再有柔光罩、构图任选，居中取景即可。当前素材是原「作品封面」图（1920×1080）。🚨 2026-09-24 起桌面端锁定 16:9（aspect-ratio + max-height:78vh 兜底），不再用 58vh 高度 → 宽屏下不再上下切掉产品主体。",
+      "desktop": "1440×810（1440 视口，全出血，16:9 零裁切；超宽屏由 max-height 兜底）",
+      "mobile": "390×219（16 : 9 零裁切）",
+      "recommend": "宽 ≥ 2560（当前 1920×1080；16 : 9）",
+      "ratio": "16 : 9 最佳（cover 居中，其他比例会上下/左右裁切）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Clap o clap 详情页",
+      "visible": true
+    },
+    {
+      "id": "clapoclap-insp-1",
+      "group": "Clap o clap · CMF 提案页",
+      "name": "CMF 提案 · 01 灵感来源 ①（水面光影）",
+      "kind": "override",
+      "desc": "「01 灵感来源」三列的第一张。框固定 1.58 : 1，非此比例的图会被上下裁切。",
+      "desktop": "326×206",
+      "mobile": "330×209",
+      "recommend": "≥ 660×420（当前 1000×633，AI 生成，2026-09-23 换）",
+      "ratio": "固定 1.58 : 1（210 : 133）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Clap o clap 详情页",
+      "visible": true
+    },
+    {
+      "id": "clapoclap-insp-2",
+      "group": "Clap o clap · CMF 提案页",
+      "name": "CMF 提案 · 01 灵感来源 ②（花瓣柔美）",
+      "kind": "override",
+      "desc": "「01 灵感来源」三列的第二张。框固定 1.58 : 1。",
+      "desktop": "326×206",
+      "mobile": "330×209",
+      "recommend": "≥ 660×420（当前 1000×633，AI 生成，2026-09-23 换）",
+      "ratio": "固定 1.58 : 1（210 : 133）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Clap o clap 详情页",
+      "visible": true
+    },
+    {
+      "id": "clapoclap-insp-3",
+      "group": "Clap o clap · CMF 提案页",
+      "name": "CMF 提案 · 01 灵感来源 ③（珍珠光泽）",
+      "kind": "override",
+      "desc": "「01 灵感来源」三列的第三张。框固定 1.58 : 1。",
+      "desktop": "326×206",
+      "mobile": "330×209",
+      "recommend": "≥ 660×420（当前 1000×633，AI 生成，2026-09-23 换）",
+      "ratio": "固定 1.58 : 1（210 : 133）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Clap o clap 详情页",
+      "visible": true
+    },
+    {
+      "id": "clapoclap-mat-1",
+      "group": "Clap o clap · CMF 提案页",
+      "name": "CMF 提案 · 03 材质与工艺 ①（镜面电镀外壳）",
+      "kind": "override",
+      "desc": "「03 材质与工艺」四列的第一张。框固定 1.20 : 1，素材必须同比例否则被 cover 静默裁切。",
+      "desktop": "239×200",
+      "mobile": "159×133",
+      "recommend": "≥ 960×800，且必须 153:128（当前 1071×896 = 精确 153:128，零裁切）",
+      "ratio": "固定 1.20 : 1（153 : 128）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Clap o clap 详情页",
+      "visible": true
+    },
+    {
+      "id": "clapoclap-mat-2",
+      "group": "Clap o clap · CMF 提案页",
+      "name": "CMF 提案 · 03 材质与工艺 ②（炫彩镭射效果）",
+      "kind": "override",
+      "desc": "「03 材质与工艺」四列的第二张。框固定 1.20 : 1，素材必须同比例否则被 cover 静默裁切。",
+      "desktop": "239×200",
+      "mobile": "159×133",
+      "recommend": "≥ 960×800，且必须 153:128（当前 1071×896 = 精确 153:128，零裁切）",
+      "ratio": "固定 1.20 : 1（153 : 128）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Clap o clap 详情页",
+      "visible": true
+    },
+    {
+      "id": "clapoclap-mat-3",
+      "group": "Clap o clap · CMF 提案页",
+      "name": "CMF 提案 · 03 材质与工艺 ③（细腻哑光粉体）",
+      "kind": "override",
+      "desc": "「03 材质与工艺」四列的第三张。框固定 1.20 : 1，素材必须同比例否则被 cover 静默裁切。",
+      "desktop": "239×200",
+      "mobile": "159×133",
+      "recommend": "≥ 960×800，且必须 153:128（当前 1071×896 = 精确 153:128，零裁切）",
+      "ratio": "固定 1.20 : 1（153 : 128）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Clap o clap 详情页",
+      "visible": true
+    },
+    {
+      "id": "clapoclap-mat-4",
+      "group": "Clap o clap · CMF 提案页",
+      "name": "CMF 提案 · 03 材质与工艺 ④（柔软粉扑）",
+      "kind": "override",
+      "desc": "「03 材质与工艺」四列的第四张。框固定 1.20 : 1。",
+      "desktop": "239×200",
+      "mobile": "159×133",
+      "recommend": "≥ 480×400（当前 306×256）",
+      "ratio": "固定 1.20 : 1（153 : 128）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Clap o clap 详情页",
+      "visible": true
+    },
+    {
+      "id": "clapoclap-more-1",
+      "group": "Clap o clap · CMF 提案页",
+      "name": "CMF 提案 · 04 其他方案 跨两列视频卡 · ① 暖杏结构款",
+      "kind": "override",
+      "desc": "「04 其他 CMF 视觉方案」的题图卡（用户 09-24 起为**视频卡**：自动循环播放「暖杏结构款」产品动画 assets/video/clapoclap-more-1.mp4，本槽图是视频的 poster / 加载兜底，当前 1920×1080 = 视频首帧）。当前内容原文件「GCP-326A 327A 328A -1.jpg」的视频帧。框固定 16 : 9 → cover 零裁切；换图请给同比例，换视频请同步替换同名 mp4。",
+      "desktop": "1020×574（版心宽）",
+      "mobile": "330×186",
+      "recommend": "宽 ≥ 2040，且必须 16 : 9（当前 1920×1080 视频首帧，零裁切）",
+      "ratio": "固定 16 : 9",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "note": "原图 12 拷贝.jpg"
+    },
+    {
+      "id": "clapoclap-more-2",
+      "group": "Clap o clap · CMF 提案页",
+      "name": "CMF 提案 · 04 其他方案 两列小图 · ② 冰川蓝单色",
+      "kind": "override",
+      "desc": "「04 其他 CMF 视觉方案」（用户 2026-09-23 提供，原文件「GJA-268.jpg」）。同段第二张。⚠️ 五张请用同一套影调/同一背景，风格跳会显得像拼贴。 框固定 5 : 4，素材已按该比例预裁 → cover 零裁切；换图请给同比例。",
+      "desktop": "499×399",
+      "mobile": "330×264",
+      "recommend": "高 ≥ 800，且必须 5 : 4（当前 1439×1151，零裁切）",
+      "ratio": "固定 5 : 4",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "note": "原图 GJA-268.jpg"
+    },
+    {
+      "id": "clapoclap-more-3",
+      "group": "Clap o clap · CMF 提案页",
+      "name": "CMF 提案 · 04 其他方案 两列小图 · ③ 家族化配色",
+      "kind": "override",
+      "desc": "「04 其他 CMF 视觉方案」（用户 2026-09-23 提供，原文件「CIE_Poster C_3mx3m——1.jpg」）。同段第三张（原图是正方版式，已按 5 : 4 居中裁切，产品都在框内）。 框固定 5 : 4，素材已按该比例预裁 → cover 零裁切；换图请给同比例。",
+      "desktop": "499×399",
+      "mobile": "330×264",
+      "recommend": "高 ≥ 800，且必须 5 : 4（当前 1920×1536，零裁切）",
+      "ratio": "固定 5 : 4",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "note": "原图 CIE_Poster C_3mx3m——1.jpg"
+    },
+    {
+      "id": "clapoclap-more-4",
+      "group": "Clap o clap · CMF 提案页",
+      "name": "CMF 提案 · 04 其他方案 两列小图 · ④ 裸粉奶油",
+      "kind": "override",
+      "desc": "「04 其他 CMF 视觉方案」（用户 2026-09-23 提供，原文件「GCP-589.jpg」）。同段第四张。 框固定 5 : 4，素材已按该比例预裁 → cover 零裁切；换图请给同比例。",
+      "desktop": "499×399",
+      "mobile": "330×264",
+      "recommend": "高 ≥ 800，且必须 5 : 4（当前 1582×1266，零裁切）",
+      "ratio": "固定 5 : 4",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "note": "原图 GCP-589.jpg"
+    },
+    {
+      "id": "clapoclap-more-5",
+      "group": "Clap o clap · CMF 提案页",
+      "name": "CMF 提案 · 04 其他方案 两列小图 · ⑤ 马卡龙柔光",
+      "kind": "override",
+      "desc": "「04 其他 CMF 视觉方案」第五张（用户 09-24 与 ① 互换位置；原文件「12 拷贝.jpg」按 5 : 4 重裁，窗口以产品包围盒为中心）。框固定 5 : 4 → cover 零裁切；换图请给同比例。",
+      "desktop": "499×399",
+      "mobile": "330×264",
+      "recommend": "高 ≥ 800，且必须 5 : 4（当前 1600×1280，零裁切）",
+      "ratio": "固定 5 : 4",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "note": "原图 GCP-326A 327A 328A -1.jpg"
+    },
+    {
+      "id": "clapoclap-more-6",
+      "group": "Clap o clap · CMF 提案页",
+      "name": "CMF 提案 · 04 其他方案 两列小图 · ⑥ 渐变晶体瓶",
+      "kind": "override",
+      "desc": "「04 其他 CMF 视觉方案」第六张（用户 2026-10-10 提供，原文件「图片1.jpg」，wwp beauty 渐变瓶场景 + 开合结构示意）。此槽 data-fit：框架按素材真实比例自适应（零裁切），换任意比例的图都会自动跟随。",
+      "desktop": "499×329（随素材比例自适应）",
+      "mobile": "330×218（随素材比例自适应）",
+      "recommend": "宽 ≥ 1600（当前 2810×1855，≈1.515:1）",
+      "ratio": "跟随图片（当前 ≈1.515 : 1，零裁切）",
+      "ext": [
+        "jpg",
+        "png",
+        "webp",
+        "avif"
+      ],
+      "page": "作品 · Clap o clap 详情页",
+      "visible": true
+    },
+    {
+      "id": "clapoclap-more-7",
+      "group": "Clap o clap · CMF 提案页",
+      "name": "CMF 提案 · 04 其他方案 两列小图 · ⑦ 弹跳口红动效（GIF）",
+      "kind": "override",
+      "desc": "「04 其他 CMF 视觉方案」第七张（用户 2026-10-10 提供，原文件「弹跳口红动画.gif」，唇膏弹跳循环动画）。此槽 data-fit：框架按素材真实比例自适应（零裁切）；GIF 作背景图会自动循环播放，换图给 GIF 即可保留动效。",
+      "desktop": "499×329（随素材比例自适应）",
+      "mobile": "330×218（随素材比例自适应）",
+      "recommend": "宽 ≥ 1600 的 GIF（当前 2560×1689，≈1.515:1，3 帧）",
+      "ratio": "跟随图片（当前 ≈1.515 : 1，零裁切）",
+      "ext": [
+        "gif",
+        "jpg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · Clap o clap 详情页",
+      "visible": true
+    },
+    {
+      "id": "qq-pk-01",
+      "group": "亲气球案例",
+      "name": "包装 · 便携装滑盖盒",
+      "kind": "file",
+      "path": "assets/images/qq-pk-01.jpg",
+      "desc": "爆珠层级 01 便携装（白桃乌龙/茉莉薄荷，手取场景）。展示框 16:10，cover 微裁。",
+      "desktop": "约 715×447（图文行图列）",
+      "mobile": "全宽",
+      "recommend": "1600×900",
+      "ratio": "16 : 9",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页（包装设计）",
+      "visible": true
+    },
+    {
+      "id": "qq-pk-02",
+      "group": "亲气球案例",
+      "name": "包装 · 主视觉（盒装三口味）",
+      "kind": "file",
+      "path": "assets/images/qq-pk-02.jpg",
+      "desc": "包装章主视觉 KV：黄底盒装三口味（白桃乌龙/茉莉薄荷/玫瑰葡萄）。展示框 16:9 零裁切。",
+      "desktop": "约 1340×754",
+      "mobile": "全宽",
+      "recommend": "1920×1080",
+      "ratio": "16 : 9",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页（包装设计）",
+      "visible": true
+    },
+    {
+      "id": "qq-pk-03",
+      "group": "亲气球案例",
+      "name": "包装 · 喷雾彩盒 薄荷龙井",
+      "kind": "file",
+      "path": "assets/images/qq-pk-03.jpg",
+      "desc": "喷雾层级 02 中盒彩盒（绿，72mL(9mL×8)）。展示框 16:10。",
+      "desktop": "约 715×447（图文行图列）",
+      "mobile": "全宽",
+      "recommend": "1600×900",
+      "ratio": "16 : 9",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页（包装设计）",
+      "visible": true
+    },
+    {
+      "id": "qq-pk-04",
+      "group": "亲气球案例",
+      "name": "包装 · 喷雾彩盒 白桃乌龙",
+      "kind": "file",
+      "path": "assets/images/qq-pk-04.jpg",
+      "desc": "喷雾层级 03 中盒彩盒（粉，72mL(9mL×8)）。展示框 16:10。",
+      "desktop": "约 715×447（图文行图列）",
+      "mobile": "全宽",
+      "recommend": "1600×900",
+      "ratio": "16 : 9",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页（包装设计）",
+      "visible": true
+    },
+    {
+      "id": "qq-pk-05",
+      "group": "亲气球案例",
+      "name": "包装 · 喷雾挂卡（手持）",
+      "kind": "file",
+      "path": "assets/images/qq-pk-05.jpg",
+      "desc": "喷雾层级 01 挂卡单瓶（薄荷龙井/白桃乌龙，三卖点圆标）。展示框 16:10。",
+      "desktop": "约 715×447（图文行图列）",
+      "mobile": "全宽",
+      "recommend": "1600×900",
+      "ratio": "16 : 9",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页（包装设计）",
+      "visible": true
+    },
+    {
+      "id": "qq-pk-06",
+      "group": "亲气球案例",
+      "name": "包装 · 爆珠挂卡",
+      "kind": "file",
+      "path": "assets/images/qq-pk-06.jpg",
+      "desc": "爆珠层级 02 挂卡装（0蔗糖徽标 + 「图案仅作口味描述」）。展示框 16:10。",
+      "desktop": "约 715×447（图文行图列）",
+      "mobile": "全宽",
+      "recommend": "1600×900",
+      "ratio": "16 : 9",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页（包装设计）",
+      "visible": true
+    },
+    {
+      "id": "qq-pk-07",
+      "group": "亲气球案例",
+      "name": "包装 · 陈列盒三味",
+      "kind": "file",
+      "path": "assets/images/qq-pk-07.jpg",
+      "desc": "爆珠层级 04 终端陈列盒（约会/饭后/社交来一颗）。展示框 16:10。",
+      "desktop": "约 715×447（图文行图列）",
+      "mobile": "全宽",
+      "recommend": "1600×900",
+      "ratio": "16 : 9",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页（包装设计）",
+      "visible": true
+    },
+    {
+      "id": "qq-pk-08",
+      "group": "亲气球案例",
+      "name": "包装场景 · 冰水",
+      "kind": "file",
+      "path": "assets/images/qq-pk-08.jpg",
+      "desc": "场景竖图 1：便携装·茉莉薄荷味 冰水场景。2:3。",
+      "desktop": "约 437×656（三联竖图）",
+      "mobile": "全宽",
+      "recommend": "1000×1500",
+      "ratio": "2 : 3",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页（包装设计）",
+      "visible": true
+    },
+    {
+      "id": "qq-pk-09",
+      "group": "亲气球案例",
+      "name": "包装场景 · 圆台",
+      "kind": "file",
+      "path": "assets/images/qq-pk-09.jpg",
+      "desc": "场景竖图 2：便携装双口味 圆台陈列。2:3。",
+      "desktop": "约 437×656（三联竖图）",
+      "mobile": "全宽",
+      "recommend": "1000×1500",
+      "ratio": "2 : 3",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页（包装设计）",
+      "visible": true
+    },
+    {
+      "id": "qq-pk-10",
+      "group": "亲气球案例",
+      "name": "包装场景 · 悬浮四味",
+      "kind": "file",
+      "path": "assets/images/qq-pk-10.jpg",
+      "desc": "场景竖图 3：便携装四口味 悬浮系列（含玫瑰葡萄/甜橙西柚）。2:3。",
+      "desktop": "约 437×656（三联竖图）",
+      "mobile": "全宽",
+      "recommend": "1000×1500",
+      "ratio": "2 : 3",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页（包装设计）",
+      "visible": true
+    },
+    {
+      "id": "qq-pk-11",
+      "group": "亲气球案例",
+      "name": "包装 · 盒装俯拍",
+      "kind": "file",
+      "path": "assets/images/qq-pk-11.jpg",
+      "desc": "爆珠层级 03 盒装 12 条（俯拍展示盒装↔便携装层级）。展示框 3:4，cover 裁上下边。",
+      "desktop": "约 715×953（图文行图列）",
+      "mobile": "全宽",
+      "recommend": "1000×1500",
+      "ratio": "3 : 4（展示框）· 素材 2 : 3",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页（包装设计）",
+      "visible": true
+    },
+    {
+      "id": "qq-value",
+      "group": "亲气球案例",
+      "name": "品牌价值观 · 模型图",
+      "kind": "file",
+      "path": "assets/images/qq-value.jpg",
+      "desc": "「Brand Core Value」右栏品牌价值观模型图：亲气球·我们的名字 / 气泡框 / 快速的口气清新解决方案·我们的产品 / 为每一次清新邂逅自信交流·我们的使命。",
+      "desktop": "560x448",
+      "mobile": "330x264",
+      "recommend": "1307x1044（5:4，勿改比例）",
+      "ratio": "5 : 4",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 亲气球详情页",
+      "visible": true
+    },
+    {
+      "id": "kata-phone-01",
+      "group": "卡塔详情页手机屏",
+      "name": "手机屏① · 主视觉详情页长图",
+      "kind": "file",
+      "path": "assets/images/kata-phone-01.jpg",
+      "desc": "详情页「同一套视觉，装进三块屏幕」第一台手机里的长图。屏幕宽度铺满、高度随比例溢出，鼠标上下移动平滑跟随滚动。图片越高滚动行程越长。",
+      "desktop": "屏宽约 420×屏高约 860（长图按宽缩放）",
+      "mobile": "屏宽约 242",
+      "recommend": "宽 750、高 ≤16000（当前 750×4265）",
+      "ratio": "跟随图片（当前 1 : 5.7 竖长图）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 卡塔详情页",
+      "visible": true
+    },
+    {
+      "id": "kata-phone-02",
+      "group": "卡塔详情页手机屏",
+      "name": "手机屏② · 防风系列详情页长图",
+      "kind": "file",
+      "path": "assets/images/kata-phone-02.jpg",
+      "desc": "第二台手机里的长图（防风详情页定稿）。同上：宽度铺满、鼠标跟随滚动。",
+      "desktop": "屏宽约 420×屏高约 860（长图按宽缩放）",
+      "mobile": "屏宽约 242",
+      "recommend": "宽 750、高 ≤16000（当前 750×15109）",
+      "ratio": "跟随图片（当前 1 : 20.1 竖长图）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 卡塔详情页",
+      "visible": true
+    },
+    {
+      "id": "kata-phone-03",
+      "group": "卡塔详情页手机屏",
+      "name": "手机屏③ · 完整版详情页长图",
+      "kind": "file",
+      "path": "assets/images/kata-phone-03.jpg",
+      "desc": "第三台手机里的长图（详情页三稿）。同上：宽度铺满、鼠标跟随滚动。",
+      "desktop": "屏宽约 420×屏高约 860（长图按宽缩放）",
+      "mobile": "屏宽约 242",
+      "recommend": "宽 614、高 ≤16000（当前 614×16000）",
+      "ratio": "跟随图片（当前 1 : 26 竖长图）",
+      "ext": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "page": "作品 · 卡塔详情页",
+      "visible": true
+    }
+  ]
+}
