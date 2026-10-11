@@ -110,3 +110,85 @@ dig +short www.zhoutiantiandesign.com  # 应返回 cname.vercel-dns.com 的解�
 - **未入库的备份**：5 个未被站点引用的原始素材备份目录已写入 `.gitignore`（本地磁盘保留，不进仓库、不进部署包）。
 - **单文件体量**：`index.html` 约 5000+ 行 / 700KB，后续若要长期迭代，建议按视图拆成 `views/*.js`。
 - **WorkBuddy 发布链接**：与域名部署相互独立、可并存。若决定只保留自有域名，可在「设置—数据管理—应用」中把之前的发布下线。
+
+---
+
+## 07 · 关于 `package.json`（常见疑问）
+
+### 为什么仓库里原本没有这个文件？
+
+**因为这个站点本来就没有。** 排查结论（三条独立证据）：
+
+| 排查项 | 结果 |
+| --- | --- |
+| 文件系统全盘搜索 `package.json` | 0 个（项目内、`portfolio/` 内、`admin/` 内均无） |
+| `git ls-files` / `git log --all -- package.json` | 未被追踪、历史提交里从未出现过 |
+| `.gitignore` | 无任何与 `package.json` 相关的忽略规则（只忽略了 `packages/`、`admin/state.json` 等） |
+
+这不是「漏传」，而是**它从未存在过**：本项目是**零构建纯静态站点**——`portfolio/index.html` 单文件 + 原生 JS，没有 React / Vite / Next，没有 npm 依赖，所以没有生成过 `package.json`。
+
+### 那为什么部署时「需要」它？
+
+因为多数部署面板（Vercel / Netlify / Cloudflare Pages）会**优先看仓库根目录有没有 `package.json`**来判断项目类型。你看到的「没有这个文件我没法部署」，通常来自两种情况：
+
+1. 你在**仓库根目录**导入项目，面板找不到 `package.json`，又没有手动指定根目录 → 报错或识别成空项目；
+2. 你在**用命令行 / 本地起服务**做预览，需要一个 `start` 脚本来一键启动。
+
+### 已补上，且位置经过刻意选择
+
+已新增两个文件到**仓库根目录**：
+
+```
+package.json              ← 4 个脚本：start / dev / site / admin
+tools/static-server.mjs   ← 零依赖 Node 静态服务器（服务 portfolio/）
+```
+
+`package.json` 内容要点：
+
+```json
+{
+  "name": "tiany-zhou-portfolio",
+  "private": true,
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node tools/static-server.mjs",
+    "dev":   "node tools/static-server.mjs",
+    "site":  "node tools/static-server.mjs",
+    "admin": "node admin/server.js 5273"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
+```
+
+- `npm start` / `npm run dev` / `npm run site` → 本地起静态服务，默认 <http://localhost:3000>（`PORT` 环境变量可改），入口自动指向 `portfolio/`。
+- `npm run admin` → 启动本地素材替换后台（<http://localhost:5273>）。
+- `dependencies` / `devDependencies` **均为空**——刻意保持零依赖，`npm install` 不做任何事，不需要联网装包。
+
+### ⚠️ 关键：`package.json` 必须留在仓库根目录，**不要**放进 `portfolio/`
+
+| 放置位置 | 后果 |
+| --- | --- |
+| 仓库根目录（当前做法）| ✅ Vercel 的 **Root Directory = `portfolio`**，根目录的 `package.json` 在部署根之外，会被忽略，静态托管照常工作 |
+| 放进 `portfolio/` | ❌ Vercel 会把它识别为 **Node 项目**，进而要求 Build Command、尝试 `npm install`、去找 `.next`/`dist` 产物 → 部署直接失败或返回 404 |
+
+所以 Vercel 上的设置维持不变：
+
+| 字段 | 值 |
+| --- | --- |
+| Framework Preset | `Other` |
+| **Root Directory** | **`portfolio`** |
+| Build Command | 留空 |
+| Output Directory | 留空 |
+| Install Command | 留空 |
+
+### 本地如何自测（不依赖任何云平台）
+
+```bash
+cd F:/Sweety_Zhou_Portfolio_Full_Project/Sweety_Zhou_Portfolio_Full_Project
+npm start                 # → http://localhost:3000
+# 或指定端口：
+PORT=8080 npm start
+```
+
+已实测：`/`、`/index.html`、`/assets/media/og-cover.jpg`、`/assets/logo-studio.svg`、`/assets/overrides.js` 全部 `200`，未知路径返回 `404`，`/#/work` 等 hash 路由正常。

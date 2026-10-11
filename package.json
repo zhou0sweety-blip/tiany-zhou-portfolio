@@ -1,0 +1,33 @@
+{
+  "name": "tiany-zhou-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SWEETY ZHOU | Visual Designer — 零构建单文件静态作品集（portfolio/index.html）与本地素材后台",
+  "keywords": [
+    "portfolio",
+    "visual-designer",
+    "beauty-brand-design",
+    "packaging-design",
+    "product-visualization",
+    "cmf-design",
+    "static-site"
+  ],
+  "author": "Sweety Zhou",
+  "license": "UNLICENSED",
+  "homepage": "https://zhoutiantiandesign.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhou0sweety-blip/tiany-zhou-portfolio.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node tools/static-server.mjs",
+    "dev": "node tools/static-server.mjs",
+    "site": "node tools/static-server.mjs",
+    "admin": "node admin/server.js 5273"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
