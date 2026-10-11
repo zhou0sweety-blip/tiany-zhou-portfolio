@@ -95,7 +95,7 @@ dig +short zhoutiantiandesign.com      # 应返回 76.76.21.21
 dig +short www.zhoutiantiandesign.com  # 应返回 cname.vercel-dns.com 的解析结果
 ```
 
-- [x] `https://zhoutiantiandesign.com` 打开正常、地址栏显示绿锁
+- [ ] `https://zhoutiantiandesign.com` 打开正常、地址栏显示绿锁
 - [ ] `https://www.zhoutiantiandesign.com` 自动 308 跳转到主域
 - [ ] 首页 → 导航到 `#/work` → 点进项目页（如「品牌周边礼品」）全部正常
 - [ ] 图片/视频全部加载（打开控制台确认无 404）
