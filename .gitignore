@@ -30,6 +30,10 @@ portfolio/assets/video/_retired/
 # ---------- 临时探测页 ----------
 portfolio/_probe*.html
 
+# ---------- 交付打包产物（源码包 / 历史 bundle，本地保留不入库）----------
+packages/
+*.bundle
+
 # ---------- 本地素材后台上传记录（运行态）----------
 admin/_backup/
 admin/state.json
