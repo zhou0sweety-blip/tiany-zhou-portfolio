@@ -37,3 +37,6 @@ packages/
 # ---------- 本地素材后台上传记录（运行态）----------
 admin/_backup/
 admin/state.json
+
+# ---------- bootstrap 分发用的 bundle（临时，勿入库）----------
+portfolio/repo.bundle
