@@ -38,7 +38,10 @@ TOKEN = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN") or ""
 
 # ---------------------------------------------------------------- git helpers
 def git(*args, binary=False):
-    out = subprocess.run(["git", *args], capture_output=True, check=True).stdout
+    # core.quotepath=false：中文/特殊字符路径原样输出，不做 \ooo 转义
+    out = subprocess.run(
+        ["git", "-c", "core.quotepath=false", *args], capture_output=True, check=True
+    ).stdout
     return out if binary else out.decode("utf-8", "replace")
 
 
@@ -82,7 +85,28 @@ def changed_files(sha):
 
 
 def read_blob(sha, path):
-    return subprocess.run(["git", "show", f"{sha}:{path}"], capture_output=True, check=True).stdout
+    return subprocess.run(
+        ["git", "show", f"{sha}:{path}"], capture_output=True, check=True
+    ).stdout
+
+
+def local_blob_sha(commit, path):
+    """本地 git 对该文件算出的 blob SHA（内容寻址，与 GitHub 端一致）。"""
+    return git("rev-parse", f"{commit}:{path}").strip()
+
+
+def blob_exists(sha):
+    """GitHub 端是否已存在该 blob —— 存在则无需重复上传。"""
+    req = urllib.request.Request(API + f"/repos/{OWNER}/{REPO}/git/blobs/{sha}")
+    req.add_header("Authorization", f"Bearer {TOKEN}")
+    req.add_header("Accept", "application/vnd.github+json")
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return r.status == 200
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            return False
+        raise
 
 
 # ------------------------------------------------------------------ api calls
@@ -150,6 +174,7 @@ def main():
     base_tree = None  # 远程已有 tree（若远程无我们历史，用 None 起步）
     parent = None
     t0 = time.time()
+    n_blob = 0
     for idx, c in enumerate(commits, 1):
         changes = changed_files(c["sha"])
         entries = []
@@ -157,27 +182,41 @@ def main():
             if kind == "del":
                 entries.append({"path": path, "mode": "100644", "type": "blob", "sha": None})
                 continue
+            # 已存在同样内容的 blob 直接复用（本地 blob sha 与 GitHub 一致），避免重复上传
+            sha_local = local_blob_sha(c["sha"], path)
+            if blob_exists(sha_local):
+                entries.append({"path": path, "mode": "100644", "type": "blob",
+                                "sha": sha_local})
+                print(f"      reuse {sha_local[:8]}                {path[:64]}", flush=True)
+                continue
             content = read_blob(c["sha"], path)
             blob = api("POST", f"/repos/{OWNER}/{REPO}/git/blobs", {
                 "content": base64.b64encode(content).decode(),
                 "encoding": "base64",
             })
+            n_blob += 1
+            print(f"      blob {n_blob:4d}  {len(content)/1048576:6.2f} MB  {path[:64]}",
+                  flush=True)
             mode = "100755" if subprocess.run(
-                ["git", "ls-tree", c["sha"], path], capture_output=True
+                ["git", "-c", "core.quotepath=false", "ls-tree", c["sha"], path],
+                capture_output=True,
             ).stdout.decode().startswith("100755") else "100644"
             entries.append({"path": path, "mode": mode, "type": "blob", "sha": blob["sha"]})
-        tree_payload = {"tree": entries}
-        if base_tree:
-            tree_payload["base_tree"] = base_tree
-        tree = api("POST", f"/repos/{OWNER}/{REPO}/git/trees", tree_payload)
-        base_tree = tree["sha"]
+        if entries:
+            tree_payload = {"tree": entries}
+            if base_tree:
+                tree_payload["base_tree"] = base_tree
+            tree = api("POST", f"/repos/{OWNER}/{REPO}/git/trees", tree_payload)
+            base_tree = tree["sha"]
+        elif not base_tree:
+            raise SystemExit("首个提交没有任何文件，无法建树")
         commit_payload = {"message": c["message"], "tree": tree["sha"]}
         if parent:
             commit_payload["parents"] = [parent]
         new_commit = api("POST", f"/repos/{OWNER}/{REPO}/git/commits", commit_payload)
         parent = new_commit["sha"]
         print(f"  [{idx}/{len(commits)}] {c['sha'][:8]} -> {parent[:8]}  {len(entries)} 个文件  "
-              f"({time.time()-t0:.0f}s)")
+              f"({time.time()-t0:.0f}s)", flush=True)
 
     # 更新（或创建）分支 ref
     try:
