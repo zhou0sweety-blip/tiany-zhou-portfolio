@@ -161,7 +161,7 @@ tools/static-server.mjs   ← 零依赖 Node 静态服务器（服务 portfolio/
 }
 ```
 
-- `npm start` / `npm run dev` / `npm run site` → 本地起静态服务，默认 <http://localhost:3000>（`PORT` 环境变量可改），入口自动指向 `portfolio/`。
+- `npm start` / `npm run dev` / `npm run site` → 本地起静态服务，默认 <http://localhost:8080>（`PORT` 环境变量可改），站点根自动探测（仓库布局取 `portfolio/`，也可用 `STATIC_ROOT` 显式指定）。
 - `npm run admin` → 启动本地素材替换后台（<http://localhost:5273>）。
 - `dependencies` / `devDependencies` **均为空**——刻意保持零依赖，`npm install` 不做任何事，不需要联网装包。
 
@@ -186,7 +186,7 @@ tools/static-server.mjs   ← 零依赖 Node 静态服务器（服务 portfolio/
 
 ```bash
 cd F:/Sweety_Zhou_Portfolio_Full_Project/Sweety_Zhou_Portfolio_Full_Project
-npm start                 # → http://localhost:3000
+npm start                 # → http://localhost:8080
 # 或指定端口：
 PORT=8080 npm start
 ```

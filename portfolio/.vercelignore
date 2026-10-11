@@ -1,0 +1,2 @@
+# Vercel 上传忽略清单（站点根 = portfolio/）
+*.md

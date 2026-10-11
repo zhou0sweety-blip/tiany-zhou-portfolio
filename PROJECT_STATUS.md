@@ -100,6 +100,8 @@
 
 > 注：远程提交 SHA 与本地 SHA（`834ed78`）不同属正常——REST API 建提交时 committer 身份/时间戳与本地不一致；**内容层（tree / blob）逐字节相同**，故校验以 blob SHA 比对为准。
 
+| R59     | **生成可直接部署的交付包 + 站点根补齐多平台配置**：①新增交付物 `packages/SWEETY_ZHOU_site_20261011/`（部署根平铺在文件夹顶层 + `_source/` 收敛源码）与同目录 `SWEETY_ZHOU_site_20261011.zip`（317 项 / 181,129,062 字节 / 172.7MiB，**已剔除 `_source/` 与 `README-DEPLOY.md`**，zip 自校验通过、关键文件 12 项齐备）；②部署根补齐 4 平台配置——`vercel.json`（已有）+ 新增 `netlify.toml`（`command=""`+`publish="."`、assets 一年 immutable、index.html must-revalidate、`force=true` 404 屏蔽 `_source/*`）、`_headers`（Cloudflare Pages 同套缓存与安全头 + `Access-Control-Allow-Origin: *` for assets）、`.nojekyll`（GitHub Pages）、`.vercelignore`（排除 `*.md`，堵住 `README.md`/`PROJECT_STATUS.md` 被公网下载的暴露面）、`404.html`（Dark Editorial 风格，4s 自动跳回首页）、`robots.txt`、`sitemap.xml`；③`tools/static-server.mjs` 升级——站点根**就近逐级探测**（每层先查 `portfolio/index.html` 再查本层 `index.html`），同时兼容仓库布局与交付包布局，支持 `STATIC_ROOT` 显式覆盖；首版实现误命中外层项目根（`packages/` 位于项目内导致阶梯穿透），改为就近优先后两种布局实测均正确（包布局→包根，仓库布局→`portfolio/`）；④打包剔除**未引用素材**：`*orig-backup*` 约 35MB + `assets/video/_retired/` 约 7.7MB（本地保留），站点 214MB → **174MB**（318 文件）；⑤`_source/` 收纳 24 个源码/文档/依赖清单文件，含新建 `PACKAGE-MANIFEST.txt`；**部署根确认无 `package.json`**（防 Node 误判），且 `README-DEPLOY.md` 不进 zip（避免公网可访问泄露路径）；⑥验证——静态服务器两种布局全 200（含 404.html/robots/sitemap/netlify.toml/_headers），无头 Edge 真实渲染截图确认 Hero/导航/作品图/按钮全部正常（`packages/SWEETY_ZHOU_site_20261011_preview-check.png`） |
+
 更早的 R15–R23 已完成：全站暖白统一、品牌周边⇄展会板块互换、raggededge 曲线底边动效移植、Hero 中文文案替换等。
 
 ---

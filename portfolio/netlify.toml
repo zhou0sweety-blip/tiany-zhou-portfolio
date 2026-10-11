@@ -1,0 +1,36 @@
+# Netlify 部署配置 —— 纯静态站点，无需构建
+# 生效方式：此文件已随站点放在部署根目录，Netlify 会自动读取，无需任何手动设置。
+
+[build]
+  # 无构建步骤：站点是单文件 SPA（index.html + assets），直接发布根目录
+  command = ""
+  publish = "."
+
+# ---- 缓存与安全头（与 vercel.json 保持一致）----
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# ---- 屏蔽源码目录，避免其被当作公开内容访问 ----
+
+[[redirects]]
+  from = "/_source/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# 说明：未知路径由 Netlify 自动回落到根目录的 404.html（无需额外规则）。
+#      站点为 hash 路由（/#/work、/#/project/xxx），不经过服务端，因此不需要 SPA rewrite。
