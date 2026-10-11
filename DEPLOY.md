@@ -1,25 +1,25 @@
 # 上线部署指南 · GitHub → Vercel → Cloudflare → zhoutiantiandesign.com
 
-> 站点形态：**纯静态单文件 SPA**（`portfolio/index.html` + `portfolio/assets/`），无构建步骤、零依赖。
+> 站点形态：**纯静态单文件 SPA**（`portfolio/index.html` + `portfolio/assets/`），无构建步骤、零依赖。  
 > 本地仓库已初始化并完成首次提交，`portfolio/vercel.json` 已配置缓存与安全响应头。
 
 ---
 
 ## 00 · 前置状态
 
-| 项目 | 状态 |
-|---|---|
-| 站点入口 | `portfolio/index.html`（hash 路由：`#/home`、`#/work`、`#/project/<id>`） |
-| 构建步骤 | 无（Vercel 直接托管静态文件） |
-| 本地 Git | 已 `git init` + 首次提交（分支 `main`） |
-| `vercel.json` | 已就位：assets 一年强缓存 / index.html 不缓存 / 安全头 |
-| 待你操作 | GitHub 建仓推送、Vercel 导入、Cloudflare 解析（需你的账号授权） |
+| 项目            | 状态                                                                 |
+| ------------- | ------------------------------------------------------------------ |
+| 站点入口          | `portfolio/index.html`（hash 路由：`#/home`、`#/work`、`#/project/<id>`） |
+| 构建步骤          | 无（Vercel 直接托管静态文件）                                                 |
+| 本地 Git        | 已 `git init` + 首次提交（分支 `main`）                                     |
+| `vercel.json` | 已就位：assets 一年强缓存 / index.html 不缓存 / 安全头                            |
+| 待你操作          | GitHub 建仓推送、Vercel 导入、Cloudflare 解析（需你的账号授权）                       |
 
 ---
 
 ## 01 · 推到 GitHub
 
-1. 打开 https://github.com/new ，创建**空仓库**（不要勾选 README / .gitignore / license）：
+1. 打开 <https://github.com/new> ，创建**空仓库**（不要勾选 README / .gitignore / license）：
    - 仓库名建议：`tiany-zhou-portfolio`
    - 可见性：`Private`（推荐，站内素材不外泄）或 `Public`
 2. 在项目根目录执行（把 `<你的用户名>` 换成实际值）：
@@ -30,26 +30,26 @@ git remote add origin https://github.com/<你的用户名>/tiany-zhou-portfolio.
 git push -u origin main
 ```
 
-> 首次推送会要求登录：用 GitHub 网页版生成的 **Personal Access Token** 当密码（Settings → Developer settings → Tokens (classic) → 勾 `repo`）。
+> 首次推送会要求登录：用 GitHub 网页版生成的 **Personal Access Token** 当密码（Settings → Developer settings → Tokens (classic) → 勾 `repo`）。  
 > 之后每次改动只要 `git add -A && git commit -m "..." && git push`。
 
 ---
 
 ## 02 · Vercel 部署
 
-1. https://vercel.com → **Add New → Project → Import Git Repository** → 授权并选择刚推的仓库。
+1. <https://vercel.com> → **Add New → Project → Import Git Repository** → 授权并选择刚推的仓库。
 2. **关键设置**（一处填错会导致 404）：
 
-| 字段 | 值 |
-|---|---|
-| Framework Preset | `Other` |
+| 字段                 | 值                                       |
+| ------------------ | --------------------------------------- |
+| Framework Preset   | `Other`                                 |
 | **Root Directory** | **`portfolio`** ← 必须，站点入口与 assets 都在此目录 |
-| Build Command | 留空 |
-| Output Directory | 留空（默认即根） |
-| Install Command | 留空 |
+| Build Command      | 留空                                      |
+| Output Directory   | 留空（默认即根）                                |
+| Install Command    | 留空                                      |
 
-3. 点 **Deploy**，约 30 秒后拿到 `https://<项目名>.vercel.app` 临时域名 —— 先在这个域名上验收整站。
-4. 之后每次 `git push`，Vercel 自动重新部署。
+1. 点 **Deploy**，约 30 秒后拿到 `https://<项目名>.vercel.app` 临时域名 —— 先在这个域名上验收整站。
+2. 之后每次 `git push`，Vercel 自动重新部署。
 
 ---
 
@@ -57,16 +57,18 @@ git push -u origin main
 
 进入 Cloudflare → 选择 `zhoutiantiandesign.com` → **DNS → Records**，添加两条记录：
 
-| 类型 | 名称 | 内容 / 目标 | 代理状态 |
-|---|---|---|---|
-| `A` | `@` | `76.76.21.21` | **DNS only（灰云）** |
+| 类型      | 名称    | 内容 / 目标                | 代理状态             |
+| ------- | ----- | ---------------------- | ---------------- |
+| `A`     | `@`   | `76.76.21.21`          | **DNS only（灰云）** |
 | `CNAME` | `www` | `cname.vercel-dns.com` | **DNS only（灰云）** |
 
 ⚠️ **必须点掉橙云**（代理关闭）：
+
 - 橙云会让 Cloudflare 自己终结 SSL，Vercel 无法完成 Let's Encrypt 域名校验 → 面板报 `Invalid Configuration`、SSL 一直 pending，或出现 Cloudflare 525 错误。
 - 正确顺序：**先灰云 → 等 Vercel 签发证书（约 5–15 分钟）→ 站点 https 正常后**，再决定是否开橙云（若要开，SSL/TLS 模式必须设为 **Full (strict)**）。
 
 其他注意点：
+
 - **以 Vercel 面板显示的记录值为准**（部分账号会显示 `cname.vercel-dns-0.com`）。
 - 先删掉可能存在的旧记录：GoDaddy/Squarespace 之类留下的 parking A 记录、`www` 上已有的 A 记录（同一主机名 A 与 CNAME 冲突会间歇性失败）。
 - 根域只能用 **A 记录**，CNAME 不能用在 `@`。
@@ -93,7 +95,7 @@ dig +short zhoutiantiandesign.com      # 应返回 76.76.21.21
 dig +short www.zhoutiantiandesign.com  # 应返回 cname.vercel-dns.com 的解析结果
 ```
 
-- [ ] `https://zhoutiantiandesign.com` 打开正常、地址栏显示绿锁
+- [x] `https://zhoutiantiandesign.com` 打开正常、地址栏显示绿锁
 - [ ] `https://www.zhoutiantiandesign.com` 自动 308 跳转到主域
 - [ ] 首页 → 导航到 `#/work` → 点进项目页（如「品牌周边礼品」）全部正常
 - [ ] 图片/视频全部加载（打开控制台确认无 404）
